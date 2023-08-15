@@ -1,0 +1,30 @@
+#maskLayer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 104;
+    opacity: 0.5;
+    left: 0;
+    top: 0;
+    background: black;
+    display: none;
+}
+
+#LoadingBar {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    z-index: 105;
+    margin-left: -150px;
+    margin-top: -150px;
+    display: none;
+}
+
+#gridBox {
+    font-size: 10px;
+}
+
+.myselected {
+    background: #b6ffae;
+}

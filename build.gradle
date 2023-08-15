@@ -1,0 +1,44 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.2'
+	id 'io.spring.dependency-management' version '1.1.2'
+}
+
+group = 'com.kmis'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	maven { url "https://repo.osgeo.org/repository/release/"}
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.geotools/gt-swing
+	implementation group: 'org.geotools', name: 'gt-epsg-hsql', version: '22.1'
+	implementation group: 'org.geotools', name: 'gt-referencing', version: '22.1'
+	implementation group: 'org.geotools', name: 'gt-main', version: '22.1'
+	implementation group: 'org.geotools', name: 'gt-shapefile', version: '22.1'
+	implementation group: 'org.geotools', name: 'gt-geojson', version: '22.1'
+	// https://mvnrepository.com/artifact/org.locationtech.proj4j/proj4j
+	implementation group: 'org.locationtech.proj4j', name: 'proj4j', version: '1.1.1'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
